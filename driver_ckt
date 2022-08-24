@@ -1,0 +1,27 @@
+*************Driver Ckt*****************
+
+.title driverckt
+.lib "/home/fenix/vlsi/eda-technology/sky130/models/spice/models/sky130.lib.spice ff"
+
+.global vdd gnd
+.temp 27
+.include inv_sub
+
+
+
+xinv1 in net1 inverter
+xinv2 net1 out inverter
+Cload out gnd 100p
+vin in gnd pulse (0 1.8 1n 1p 1p 2n 4n)
+.tran 5p 10n
+
+.control
+run
+set color0=white
+set color1=black
+set color2=green
+
+plot v(out)
+
+.endc
+.end

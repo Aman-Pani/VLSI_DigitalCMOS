@@ -1,0 +1,22 @@
+***** Sources Transient Simulation *****
+
+.title sources_transient
+.global vdd gnd
+.temp 27
+
+
+vp net2 gnd pulse (0 1.8 1n 1p 1p 2n 4n)
+Vsin net3 gnd sin (0 1.8 1G 0 0 )
+
+.tran 5p  10n
+
+.control 
+run
+set color0=white
+set color1=black
+set color2=green
+
+plot v(net2)
+plot v(net3)
+.endc
+.end

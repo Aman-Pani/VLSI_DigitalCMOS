@@ -1,0 +1,17 @@
+******* RC CKT 1 *************
+
+Vd net1 gnd pulse(0 1.8 1n 1p 1p 2n 4n)
+R1 net1 net2 2k
+R2 net2 gnd  2k
+C1 net2 gnd 100f
+
+.tran 5p 10n
+
+.control
+run
+plot v(net2)
+.endc
+.end
+
+
+

@@ -1,0 +1,30 @@
+****** NMOS CKT*******
+
+
+.title nmosCKT
+.lib "/home/rudransh/internship/eda-technology/sky130/models/spice/models/sky130.lib.spice ff"
+
+
+.global vdd gnd
+.temp 27
+
+
+xmn d g s b sky130_fd_pr__nfet_01v8  w=5 l=1 m=1
+
+Vgs g gnd dc 0.9
+Vss s gnd dc 0
+Vbs b gnd dc 0
+Vds d gnd dc 1.8
+
+.dc Vgs 0 1.8 0.001
+
+.control
+run
+set color0=white
+set color1=black
+set color2=brown
+plot sqrt(i(Vss)) 
+.endc
+.end
+
+ 

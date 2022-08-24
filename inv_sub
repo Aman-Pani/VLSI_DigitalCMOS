@@ -1,0 +1,11 @@
+***** SUB CIRCUIt**************
+
+
+.subckt inverter in out 
+xmp out in Vdd Vdd sky130_fd_pr__pfet_01v8 w=2 l=0.18 m=1
+xmn out in gnd gnd sky130_fd_pr__nfet_01v8 w=1 l=0.18 m=1
+
+
+Cint out gnd 20f
+.ends inverter
+

@@ -1,0 +1,35 @@
+*************Ring Oscillator*****************
+
+.title ring_oscillator
+.lib "/home/fenix/vlsi/eda-technology/sky130/models/spice/models/sky130.lib.spice ff"
+
+.global vdd gnd
+.temp 27
+.include inv_sub_2
+
+
+
+xinv1 in net1 inverter
+xinv2 net1 net2 inverter 
+xinv3 net2 net3 inverter 
+xinv4 net3 net4 inverter 
+xinv5 net4 net5 inverter
+xinv6 net5 net6 inverter
+xinv7 net6 in inverter 
+.ic v(in)=0
+
+*Cload out gnd 100p
+Vsup vdd gnd dc 1.8
+*vin in gnd pulse (0 1.8 1n 10p 10p 5n 10n)
+.tran 5p 50n
+
+.control
+run
+set color0=white
+set color1=black
+set color2=green
+
+plot  v(in) ylabel 'Output Voltage (V)'
+
+.endc
+.end

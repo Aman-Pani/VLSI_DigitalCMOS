@@ -1,0 +1,25 @@
+******* sources simulation ********
+
+.title sources_analysis
+.global vdd gnd
+.temp 27 
+
+idc net2 net1 dc 5u
+vdc net1 gnd dc 0
+
+*.op
+.dc idc 0 5u 10n
+*.dc vdc  0 1.8 0.01
+.control
+run
+set color0=white
+set color1=black
+set color2=green
+set xbrushwidth=4
+*print v(net1) 
+plot i(vdc) ylabel 'Current (uA)'
+*plot v(net1) ylabel 'Voltage (v)' 
+.endc
+.end
+
+

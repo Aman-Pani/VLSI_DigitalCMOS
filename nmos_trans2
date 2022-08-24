@@ -1,0 +1,30 @@
+***NMOS_ TRANS*****
+
+.title nmos_trans
+.global  gnd
+
+.temp 27
+
+.lib "/home/rudransh/internship/eda-technology/sky130/models/spice/models/sky130.lib.spice ff"
+
+
+
+xmn d g s b sky130_fd_pr__nfet_01v8  w=1 l=1 m=5
+
+Vgs g gnd dc  1.8
+Vss s gnd dc 0
+Vbs gnd b dc 0
+Vds d g dc 0
+
+.dc Vgs 0 1.8 0.001 Vbs 0 2 1
+
+.control
+run
+set color0=white
+set color1=black
+set color2=green
+plot sqrt(i(Vss)) 
+.endc
+.end
+
+ 
